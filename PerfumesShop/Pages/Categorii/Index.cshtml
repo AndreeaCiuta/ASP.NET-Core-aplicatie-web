@@ -1,0 +1,78 @@
+﻿@page "{id:int?}"
+@model PerfumesShop.Pages.Categorii.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Categorii parfumuri</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Categorie[0].Categ)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <table>
+
+            @if (Model.CategorieData.Parfumuri != null)
+            {
+                <h3>Parfumuri selectate in functie de Categorie</h3>
+                <table class="table">
+
+                    @foreach (var item in Model.CategorieData.Categorii)
+                    {
+                        string selectedRow = "";
+                        if (item.ID == Model.CategorieID)
+                        {
+                            selectedRow = "table-success";
+                        }
+                        <tr class="@selectedRow">
+
+                            <td>
+                                @{
+                                    foreach (var b in item.Parfumuri)
+                                    {
+
+                                        @b.Denumire @: @b.Categorie.Categ
+
+                                        <br />
+                                    }
+                                }
+                            </td>
+                        </tr>
+                    }
+                </table>
+            }
+
+
+
+            @foreach (var item in Model.CategorieData.Categorii)
+            {
+                string selectedRow = "";
+                if (item.ID == Model.CategorieID)
+                {
+                    selectedRow = "table-success";
+                }
+                <tr class="@selectedRow">
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Categ)
+                    </td>
+
+                    <td>
+                        <a asp-page="./Index" asp-route-id="@item.ID">Select</a> |
+                        <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
+                        <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
+                        <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+                    </td>
+                </tr>
+            }
+    </tbody>
+</table>

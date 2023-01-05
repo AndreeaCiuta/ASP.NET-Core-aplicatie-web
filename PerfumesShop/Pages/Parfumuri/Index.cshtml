@@ -1,0 +1,108 @@
+﻿@page
+@model PerfumesShop.Pages.Parfumuri.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Colectie Parfumuri</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+
+<form method="get" asp-action="Index">
+    <p>
+        <input type="search" placeholder="Cauta numele parfumului sau tipul acestuia" value="@Model.CurrentFilter" name="searchString" style="width:400px;" />
+        <input type="submit" value="Search" class="btn btn-primary" />
+        <a asp-action="Index">Inapoi la Colectia de parfumuri </a>
+    </p>
+
+</form>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <a asp-page="./Index" asp-route-sortOrder="@Model.DenumireSort">
+                    @Html.DisplayNameFor(model => model.Parfum[0].Denumire)
+                </a>
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Parfum[0].Gen)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Parfum[0].Pret)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Parfum[0].Cantitate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Parfum[0].TVarf)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Parfum[0].TMijloc)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Parfum[0].TBaza)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Parfum[0].Categorie.Categ)
+            </th>
+            <th>
+                <a asp-page="./Index" asp-route-sortOrder="@Model.TipSort">
+                    @Html.DisplayNameFor(model => model.Parfum[0].Tip.Type)
+                </a>
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Parfum[0].Concentratie.Conctr)
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.ParfumD.Parfumuri)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Denumire)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Gen)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Pret)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cantitate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TVarf)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TMijloc)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TBaza)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Categorie.Categ)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Tip.Type)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Concentratie.Conctr)
+                </td>
+
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
+                    <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

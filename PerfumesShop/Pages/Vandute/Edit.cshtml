@@ -1,0 +1,40 @@
+﻿@page
+@model PerfumesShop.Pages.Vandute.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Vandut</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Vandut.ID" />
+            <div class="form-group">
+                <label asp-for="Vandut.UtilizatorID" class="control-label"></label>
+                <select asp-for="Vandut.UtilizatorID" class="form-control" asp-items="ViewBag.UtilizatorID"></select>
+                <span asp-validation-for="Vandut.UtilizatorID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Vandut.ParfumID" class="control-label"></label>
+                <select asp-for="Vandut.ParfumID" class="form-control" asp-items="ViewBag.ParfumID"></select>
+                <span asp-validation-for="Vandut.ParfumID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

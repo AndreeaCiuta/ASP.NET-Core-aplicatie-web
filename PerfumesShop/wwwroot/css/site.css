@@ -1,0 +1,30 @@
+html {
+    font-size: 14px;
+    background-color: lightpink;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+        background-color: lightseagreen;
+    }
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+    background-color: pink;
+}
+
+body {
+    margin-bottom: 60px;
+    background-color: lightpink;
+}
+
+select {
+    background-color: yellow;
+}
+
+head {
+    background-color: green;
+}

@@ -1,0 +1,80 @@
+﻿@page
+@model PerfumesShop.Pages.Parfumuri.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Parfum</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Parfum.ID" />
+            <div class="form-group">
+                <label asp-for="Parfum.Denumire" class="control-label"></label>
+                <input asp-for="Parfum.Denumire" class="form-control" />
+                <span asp-validation-for="Parfum.Denumire" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Parfum.Gen" class="control-label"></label>
+                <input asp-for="Parfum.Gen" class="form-control" />
+                <span asp-validation-for="Parfum.Gen" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Parfum.Pret" class="control-label"></label>
+                <input asp-for="Parfum.Pret" class="form-control" />
+                <span asp-validation-for="Parfum.Pret" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Parfum.Cantitate" class="control-label"></label>
+                <input asp-for="Parfum.Cantitate" class="form-control" />
+                <span asp-validation-for="Parfum.Cantitate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Parfum.TVarf" class="control-label"></label>
+                <input asp-for="Parfum.TVarf" class="form-control" />
+                <span asp-validation-for="Parfum.TVarf" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Parfum.TMijloc" class="control-label"></label>
+                <input asp-for="Parfum.TMijloc" class="form-control" />
+                <span asp-validation-for="Parfum.TMijloc" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Parfum.TBaza" class="control-label"></label>
+                <input asp-for="Parfum.TBaza" class="form-control" />
+                <span asp-validation-for="Parfum.TBaza" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Parfum.CategorieID" class="control-label"></label>
+                <select asp-for="Parfum.CategorieID" class="form-control" asp-items="ViewBag.CategorieID"></select>
+                <span asp-validation-for="Parfum.CategorieID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Parfum.TipID" class="control-label"></label>
+                <select asp-for="Parfum.TipID" class="form-control" asp-items="ViewBag.TipID"></select>
+                <span asp-validation-for="Parfum.TipID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Parfum.ConcentratieID" class="control-label"></label>
+                <select asp-for="Parfum.ConcentratieID" class="form-control" asp-items="ViewBag.ConcentratieID"></select>
+                <span asp-validation-for="Parfum.ConcentratieID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
